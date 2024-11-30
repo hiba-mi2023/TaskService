@@ -1,0 +1,27 @@
+server:
+  port: 5002
+
+spring:
+  application:
+    name: TASK-SERVICE
+
+  # Database configuration
+  datasource:
+    url: jdbc:mysql://localhost:3306/task_service1
+    username: root
+    password: # Specify the password here if needed, for example: 'password123'
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # JPA (Hibernate) settings
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+eureka:
+  instance:
+    prefer-ip-address: true  # Optional: use IP address instead of hostname for Eureka registration
+  client:
+    fetch-registry: true  # Fetch services registered in Eureka
+    register-with-eureka: true  # Register this service with Eureka
+    service-url:
+      defaultZone: http://localhost:8761/eureka/  # Eureka server URL
